@@ -1,4 +1,4 @@
-# jinjainc - incremental evaluation in a Jinga2 template.
+# jinjainc - incremental evaluation in a Jinja2 template.
 
 Given a template like
 
