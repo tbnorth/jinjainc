@@ -57,3 +57,23 @@ a *= b
 Finally a: 32.0 (32.0).
 
 
+## How it “works”
+
+It's an extremely simplistic hack.  It just counts the number of
+occurrences of ` _.` (space, underscore, dot) before each Python
+code block in the template.  Then, each time `_.<foo>` is
+referenced by the template evaluation code it increments an
+internal counter, executes any code blocks that should have
+occurred in the template by the time you reach this reference,
+then gets `foo` from the namespace the code blocks are executed
+in.
+
+This means it would fail if accessed in a Jinja loop, like
+```
+{% for i range(5) %}
+{{ _.result[i] }}
+{% endfor %}
+```
+
+I guess that case could be handled with `_._.result[i]`, a special
+form that doesn't increment the internal counter.
