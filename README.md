@@ -75,5 +75,7 @@ This means it would fail if accessed in a Jinja loop, like
 {% endfor %}
 ```
 
+because it would be called five times but would have only counted
+one reference to itself when it inspected the template.
 I guess that case could be handled with `_._.result[i]`, a special
 form that doesn't increment the internal counter.
