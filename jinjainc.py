@@ -18,25 +18,25 @@ class Incer:
     Given a Jinja2 template like the one below, provide a variable
     to be used in the context which gives incremental execution of
     ```python``` code blocks.  So for template.render(_=Incer(template_text)),
-    the value of {{ _.a }} will depend on where in the templace the
+    the value of {{ _.a }} will depend on where in the template the
     expression occurs, updated as appropriate by code blocks.
 
     ---cut here---
 
-    Once {{ _.a }}, twice {{ _.a }}, thrice {{ _.a }}.
+    `a` is {{ _.a }}, twice {{ _.a }}, thrice {{ _.a }}.
     ```python
     a = 9
     b = 3.2
     ```
-    But now {{ _.a }} ({{ _.a }}).
+    But now `a` = {{ _.a }} ({{ _.a }}).
     ```python
     a = 10
     ```
-    And then {{ _.a }}.
+    And then `a` is {{ _.a }}.
     ```python
     a *= b
     ```
-    Finally {{ _.a }} ({{ _.a }}).
+    Finally a: {{ _.a }} ({{ _.a }}).
     """
     def __init__(self, template_text):
         self.__globals = {}
