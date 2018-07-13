@@ -36,6 +36,8 @@ yield
     ```python
     a *= b
     ```
+    Finally 32.0 (32.0).
+
 ```
 
 or, after rendering through pandoc or whatever:
@@ -52,5 +54,7 @@ a = 10
 And then 10.
 ```python
 a *= b
+```
+Finally 32.0 (32.0).
 
 
